@@ -22,7 +22,7 @@ const Navbar = () => {
         <div>
           {isAuthenticated ? (
             <div onClick={() => setShowMenu(!showMenu)} className="menu">
-              <img alt="" src={user.user.image.url} />
+              <img alt="" src={user?.user?.image.url} />
               <div className="menu-items">
                 <button
                   className="create-car"
