@@ -72,7 +72,7 @@ export const createCar = catchAsync(async (req, res, next) => {
     });
   }
 
-  const car = await Car.create({
+  await Car.create({
     ...req.body,
     images: imagesLinks,
     user: req.userID,
@@ -80,7 +80,7 @@ export const createCar = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     success: true,
-    car,
+    message: "Car created successfully!",
   });
 });
 
@@ -136,7 +136,7 @@ export const updateCar = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    car,
+    message: "Car updated successfully!",
   });
 });
 

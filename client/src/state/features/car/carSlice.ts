@@ -14,7 +14,7 @@ import { CarData } from "./carService";
 // GET ALL CARS
 export const getAllCarsAsync = createAsyncThunk(
   "car/getAll",
-  async (_, thunkAPI): Promise<CarData[] | any> => {
+  async (_, thunkAPI) => {
     try {
       return await getAllCars();
     } catch (error: any) {
@@ -32,7 +32,7 @@ export const getAllCarsAsync = createAsyncThunk(
 // GET ONE CAR
 export const getOneCarAsync = createAsyncThunk(
   "car/getOne",
-  async (id: string, thunkAPI): Promise<CarData | any> => {
+  async (id: string, thunkAPI) => {
     try {
       return await getOneCar(id);
     } catch (error: any) {

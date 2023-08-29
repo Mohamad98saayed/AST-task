@@ -39,15 +39,3 @@
   justify-content: $justify-content;
   align-items: $align-items;
 }
-
-// GRID
-@mixin grid(
-  $grid-template-rows: auto,
-  $grid-template-columns: auto,
-  $grid-gap: 0
-) {
-  display: grid;
-  grid-template-rows: $grid-template-rows;
-  grid-template-columns: $grid-template-columns;
-  grid-gap: $grid-gap;
-}
