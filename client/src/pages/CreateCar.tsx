@@ -9,7 +9,7 @@ const CreateCar = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const { response } = useAppSelector((state) => state.cars);
+  const { response, isLoading } = useAppSelector((state) => state.cars);
 
   useEffect(() => {
     if (response?.success) {
@@ -196,7 +196,9 @@ const CreateCar = () => {
               }}
             />
 
-            <button type="submit">create car</button>
+            <button type="submit" disabled={isLoading ? true : false}>
+              {isLoading ? "loading" : "create car"}
+            </button>
           </form>
         )}
       </Formik>

@@ -13,7 +13,7 @@ const UpdateCar = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const params = useParams();
-  const { response, car } = useAppSelector((state) => state.cars);
+  const { response, car, isLoading } = useAppSelector((state) => state.cars);
 
   useEffect(() => {
     if (response?.success) {
@@ -200,7 +200,9 @@ const UpdateCar = () => {
               }}
             />
 
-            <button type="submit">update</button>
+            <button type="submit" disabled={isLoading ? true : false}>
+              {isLoading ? "loading" : "update"}
+            </button>
           </form>
         )}
       </Formik>

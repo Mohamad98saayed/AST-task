@@ -108,7 +108,6 @@ const initialState: any = {
   response: null,
   isError: false,
   error: null,
-  isSuccess: false,
   isLoading: false,
 };
 
@@ -127,7 +126,6 @@ export const carSlice = createSlice({
       })
       .addCase(getAllCarsAsync.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.isSuccess = true;
         state.cars = payload;
       })
       .addCase(getAllCarsAsync.rejected, (state, { payload }) => {
@@ -141,7 +139,6 @@ export const carSlice = createSlice({
       })
       .addCase(getOneCarAsync.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.isSuccess = true;
         state.car = payload;
       })
       .addCase(getOneCarAsync.rejected, (state, { payload }) => {
@@ -155,12 +152,11 @@ export const carSlice = createSlice({
       })
       .addCase(createCarAsync.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.isSuccess = true;
         state.response = payload;
       })
       .addCase(createCarAsync.rejected, (state, { payload }) => {
         state.isLoading = false;
-        state.isSuccess = true;
+        state.isError = true;
         state.error = payload;
       })
       // update car details
@@ -169,12 +165,11 @@ export const carSlice = createSlice({
       })
       .addCase(updateCarAsync.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.isSuccess = true;
         state.response = payload;
       })
       .addCase(updateCarAsync.rejected, (state, { payload }) => {
         state.isLoading = false;
-        state.isSuccess = true;
+        state.isError = true;
         state.error = payload;
       })
       // delete car document
@@ -183,12 +178,11 @@ export const carSlice = createSlice({
       })
       .addCase(deleteCarAsync.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.isSuccess = true;
         state.response = payload;
       })
       .addCase(deleteCarAsync.rejected, (state, { payload }) => {
         state.isLoading = false;
-        state.isSuccess = true;
+        state.isError = true;
         state.error = payload;
       });
   },

@@ -83,7 +83,6 @@ const initialState: any = {
     response: null,
     isError: false,
     error: null,
-    isSuccess: false,
     isLoading: false,
 };
 
@@ -102,7 +101,6 @@ export const userSlice = createSlice({
             })
             .addCase(signupAsync.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
-                state.isSuccess = true;
                 state.isAuthenticated = true;
                 state.response = payload;
             })
@@ -117,7 +115,6 @@ export const userSlice = createSlice({
             })
             .addCase(signinAsync.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
-                state.isSuccess = true;
                 state.isAuthenticated = true;
                 state.response = payload;
             })
@@ -132,7 +129,6 @@ export const userSlice = createSlice({
             })
             .addCase(signoutAsync.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
-                state.isSuccess = true;
                 state.isAuthenticated = false;
                 state.response = payload;
             })
